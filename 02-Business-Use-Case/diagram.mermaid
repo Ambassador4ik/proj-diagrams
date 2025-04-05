@@ -1,4 +1,5 @@
 graph LR
+    BA[Business Goal:<br> Optimize pricing & production decisions through break-even analysis and cost management]
     Admin[Admin] --> G(View Calculation History)
     Admin --> H(Manage Data)
 
@@ -10,4 +11,8 @@ graph LR
     B --> F(Perform Batch Calculations)
     F --> D
     F --> E
-    
+
+    BA -.-> A
+    BA -.-> B
+    BA -.-> G
+    BA -.-> H
