@@ -1,0 +1,21 @@
+flowchart LR
+    %% External Entities
+    User[User]
+    Admin[Admin]
+
+    %% System Boundary
+    subgraph System [Break-Even Analysis System]
+        BEA[Calculation Processor]
+    end
+
+    %% Data Flows for Single Calculation
+    User -- "Calculation Input Data<br>(Q0, p, C0, C2)" --> BEA
+    BEA -- "Calculation Results<br>(Min/Max Break-Even)" --> User
+
+    %% Data Flows for Batch Calculation
+    User -- "Batch File (Multiple Calculation Inputs)" --> BEA
+    BEA -- "Batch Calculation Results" --> User
+
+    %% Data Flows for Administrative Functions
+    Admin -- "History/Management Requests" --> BEA
+    BEA -- "Calculation History & Data Management Info" --> Admin
