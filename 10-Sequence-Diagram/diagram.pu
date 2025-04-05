@@ -1,0 +1,14 @@
+@startuml
+participant "Input Controller" as IC
+participant "Calculation Engine" as CE
+participant "Visualization Module" as VM
+participant "Calculation History DB" as DB
+
+IC -> CE: Receive calculation request(Q0, p, C0, C2)
+CE -> CE: Compute break-even points(min, max)
+CE -> IC: Return calculation results
+IC -> DB: Save calculation results
+IC -> VM: Request visualization for results
+VM -> VM: Generate visualization (chart/table)
+VM -> IC: Return visualization output
+@enduml

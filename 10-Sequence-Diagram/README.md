@@ -1,0 +1,3 @@
+## Sequence Diagram (system level)
+
+![](https://www.plantuml.com/plantuml/svg/VT6nJiGm30RWlKzXtTIJUW8nte1EX0ewT02axhwUWOZKAOvJ0KzFIbL4At6Jby_sx-GG54LZvx8-LTlQ7bbXKt4V5Ond5UySoGOmG6MMoA1heqErdg7a5ylqmqovP8qD4Ptzcc3jJz5DiAd_dtTlWthvXDkRaQQIPPM1tNMQleT7QiaE1EsV1g7tI47pXyi2-W9CAkPgcvboRZA-IpSH78NmRKS3CVJUieQyirn0Xn-phiouGgFmQaE8JiEK8oNQmnCET8OqTPepnO9XyGZFNdvjKy_sZfW4bLOuRrzHz4Bnw6YR-3BY2lkewShiG7mQF_KR)
