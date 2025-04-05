@@ -1,0 +1,41 @@
+erDiagram
+    USER {
+        int user_id PK
+        string username
+        string password_hash
+        string role "Values: 'User' or 'Admin'"
+    }
+
+    CALCULATION {
+        int calc_id PK
+        datetime calculation_date
+        int user_id FK
+        int batch_id FK "Nullable if single calculation"
+    }
+
+    CALCULATION_INPUT {
+        int input_id PK
+        int calc_id FK
+        float Q0 "Max consumers at zero price"
+        float p "Max price"
+        float C0 "Fixed costs"
+        float C1 "Variable costs per consumer"
+    }
+
+    CALCULATION_RESULT {
+        int result_id PK
+        int calc_id FK
+        float min "Smallest production quantity (break-even)"
+        float max "Largest production quantity (break-even)"
+    }
+
+    BATCH_CALCULATION {
+        int batch_id PK
+        string file_name
+        datetime upload_date
+    }
+
+    USER ||--o{ CALCULATION : "initiates"
+    CALCULATION ||--|| CALCULATION_INPUT : "has"
+    CALCULATION ||--|| CALCULATION_RESULT : "produces"
+    BATCH_CALCULATION ||--o{ CALCULATION : "groups"
