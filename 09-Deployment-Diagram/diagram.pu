@@ -1,0 +1,20 @@
+@startuml
+node "User Device" {
+  artifact "Web Browser" as Browser
+}
+
+node "Web Server" {
+  artifact "Application Server" as AppServer
+  artifact "Calculation Engine" as CE
+  artifact "Visualization Module" as VM
+}
+
+node "Database Server" {
+  artifact "Calculation History DB" as DB
+}
+
+Browser --> AppServer : HTTP/HTTPS Requests
+AppServer --> CE : Invokes Calculation Service
+AppServer --> VM : Requests Visualization Data
+AppServer --> DB : Executes SQL Queries (Read/Write)
+@enduml
