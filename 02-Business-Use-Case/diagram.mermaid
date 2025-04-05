@@ -1,18 +1,29 @@
-graph LR
-    BA[Business Goal:<br> Optimize pricing & production decisions through break-even analysis and cost management]
-    Admin[Admin] --> G(View Calculation History)
-    Admin --> H(Manage Data)
+flowchart LR
+    %% Actors
+    BM[Business Manager]
+    FA[Financial Analyst]
+    SD[Sales Director]
+    IT[IT Department]
 
-    User[User] --> A(Enter Calculation Input)
-    User --> B(Upload File for Multi-Calculation)
-    A --> C(Compute Break-Even Points)
-    C --> D(View Calculation Results)
-    C --> E(Save Calculation History)
-    B --> F(Perform Batch Calculations)
-    F --> D
-    F --> E
+    %% Business Process (Use Cases)
+    subgraph BP["Break-Even Analysis Business Process"]
+      Data[Collect Market & Cost Data]
+      Analysis[Perform Break-Even Analysis]
+      Review[Review Calculation Results]
+      Strategy[Update Pricing & Production Strategy]
+      Data --> Analysis --> Review --> Strategy
+    end
 
-    BA -.-> A
-    BA -.-> B
-    BA -.-> G
-    BA -.-> H
+    %% Business Aim
+    BA["Business Aim:<br>Optimize pricing, production, and cost management<br>to improve profitability."]
+
+    %% Connections from Actors to Use Cases
+    BM --> Review
+    BM --> Strategy
+    FA --> Data
+    FA --> Analysis
+    SD --> Strategy
+    IT --> Data
+
+    %% Linking Business Aim to the process
+    BA --- Strategy
