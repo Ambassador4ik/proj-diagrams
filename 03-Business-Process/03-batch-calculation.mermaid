@@ -1,0 +1,11 @@
+flowchart TD
+    A[Start Batch Calculation Process] --> B[User uploads batch file]
+    B --> C[Validate file format and data]
+    C --> D{Is file valid?}
+    D -- No --> E[Notify user of errors]
+    D -- Yes --> F[Parse input data]
+    F --> G[For each input set, compute break-even points]
+    G --> H[Aggregate individual results]
+    H --> I[Save calculation results to history]
+    I --> J[Display aggregated results to user]
+    J --> K[End Batch Calculation Process]

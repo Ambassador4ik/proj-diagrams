@@ -1,0 +1,9 @@
+flowchart TD
+    A[Start Viewing Calculation History] --> B[User selects history view option]
+    B --> C[System retrieves saved calculation history]
+    C --> D{Apply filters/search?}
+    D -- Yes --> E[Filter/Sort History Records]
+    E --> F[Display Filtered History]
+    D -- No --> G[Display All History Records]
+    F --> H[End Viewing Process]
+    G --> H
