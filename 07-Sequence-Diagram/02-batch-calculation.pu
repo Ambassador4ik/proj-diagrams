@@ -1,0 +1,21 @@
+@startuml
+actor User
+participant "Batch Controller" as BC
+participant "Calculation Engine" as CE
+participant "Visualization Module" as VM
+database "Calculation History DB" as DB
+
+User -> BC: Upload Batch File with multiple inputs
+BC -> DB: (Optional) Save batch file metadata
+BC -> CE: Process each input record in batch
+loop For each input record
+    CE -> CE: Compute break-even points (min, max)
+end
+CE -> BC: Return aggregated batch calculation results
+BC -> DB: Save batch calculation results
+BC -> VM: Send batch results for visualization
+VM -> VM: Generate visualization (charts/tables)
+VM -> BC: Return visualization output
+BC -> User: Display visualization results
+
+@enduml

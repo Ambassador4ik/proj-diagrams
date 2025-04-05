@@ -1,0 +1,16 @@
+@startuml
+actor Admin
+participant "Admin Dashboard" as AD
+database "Calculation History DB" as DB
+
+Admin -> AD: Request to view calculation history
+AD -> DB: Query calculation records
+DB -> AD: Return calculation records
+AD -> Admin: Display calculation history
+
+Admin -> AD: Initiate data management operation
+AD -> DB: Execute data update/delete
+DB -> AD: Confirm changes
+AD -> Admin: Display updated data
+
+@enduml

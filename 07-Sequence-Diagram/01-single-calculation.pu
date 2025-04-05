@@ -1,0 +1,18 @@
+@startuml
+actor User
+participant "Input Controller" as IC
+participant "Calculation Engine" as CE
+participant "Visualization Module" as VM
+database "Calculation History DB" as DB
+
+User -> IC: Enter Calculation Input (Q0, p, C0, C2)
+IC -> CE: Forward input data
+CE -> CE: Compute break-even points (min, max)
+CE -> IC: Return calculation result
+IC -> DB: Save calculation result
+IC -> VM: Request visualization for result
+VM -> VM: Generate visualization (chart/table)
+VM -> IC: Return visualization output
+IC -> User: Display result and visualization
+
+@enduml
