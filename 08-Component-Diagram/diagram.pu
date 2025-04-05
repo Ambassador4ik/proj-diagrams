@@ -1,0 +1,28 @@
+@startuml
+package "Presentation Layer" {
+  [User Interface] as UI
+  [Admin Interface] as AdminUI
+}
+
+package "Business Logic Layer" {
+  [Input Controller] as IC
+  [Batch Processor] as BP
+  [Calculation Engine] as CE
+  [Visualization Module] as VM
+}
+
+package "Data Layer" {
+  [Calculation History DB] as DB
+}
+
+UI --> IC : Submit Calculation Data
+UI --> BP : Upload Batch File
+IC --> CE : Forward Input Data
+BP --> CE : Process Batch Records
+CE --> VM : Request Visualization Data
+VM --> UI : Return Visualization
+
+CE --> DB : Read/Write Calculation Records
+AdminUI --> DB : View/Manage Calculation History
+
+@enduml
