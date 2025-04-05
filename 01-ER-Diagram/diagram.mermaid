@@ -1,0 +1,27 @@
+erDiagram
+    INPUT {
+        Q0 max_consumers
+        p max_price
+        C0 fixed_costs
+        C1 variable_costs
+    }
+    
+    CALCULATION_RESULT {
+        min smallest_production_quantity
+        max largest_production_quantity
+    }
+    
+    CALCULATION {
+        id calculation_id
+        date calculation_date
+    }
+    
+    BATCH_CALCULATION {
+        id batch_id
+        name file_name
+        date upload_date
+    }
+
+    CALCULATION ||--|| INPUT : "uses"
+    CALCULATION ||--|| CALCULATION_RESULT : "yields"
+    BATCH_CALCULATION ||--o{ CALCULATION : "contains"
